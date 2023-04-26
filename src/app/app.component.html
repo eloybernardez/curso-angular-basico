@@ -1,13 +1,37 @@
-<h1>Propiedades</h1>
+<h1>Eventos</h1>
 
 <button [disabled]="btnDisabled">Enviar</button>
-<input type="text" [value]="person.name" />
+<button (click)="toggleButton()">Toggle button</button>
+
+<p>Edad: {{ person.age }}</p>
+<button (click)="increaseAge()">Age ++</button>
+<div class="box" (scroll)="onScroll($event)">
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, magnam.
+    Enim architecto nostrum voluptas error vel quibusdam cupiditate, natus
+    impedit dolore iusto cum ullam voluptates repellat repellendus placeat ipsum
+    possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+    voluptate nobis cumque distinctio quam cum dolores exercitationem ipsum amet
+    aliquam voluptatum, minus possimus maxime eligendi non asperiores tempora
+    facere animi. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Nulla praesentium unde rerum corrupti architecto fuga beatae, illum possimus
+    odit excepturi error vel officia ex quibusdam totam hic nesciunt repudiandae
+    deleniti?
+  </p>
+</div>
+
+<hr />
+<h1>Propiedades</h1>
+<h3>Hola, soy {{ person.name }} y tengo {{ person.age }} años</h3>
+
+<button [disabled]="btnDisabled">Enviar</button>
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
 <progress [value]="person.age" max="100"></progress>
-<img [src]="person.avatar" width="100"/>
-<hr/>
+<img [src]="person.avatar" width="100" />
+<hr />
 <h1>Hola mundo</h1>
 
-<h2>{{' Hola Mundo '.repeat(4)}}</h2>
-<p>3 + 3 + 1 ={{3 + 3 + 1}}</p>
-<h3> Hola, soy {{name}} y tengo {{age}} años</h3>
-<img [src]="img" alt="random image"/>
+<h2>{{ " Hola Mundo ".repeat(4) }}</h2>
+<p>3 + 3 + 1 ={{ 3 + 3 + 1 }}</p>
+<h3>Hola, soy {{ name }} y tengo {{ age }} años</h3>
+<img [src]="img" alt="random image" />

@@ -15,4 +15,22 @@ export class AppComponent {
     age: 19,
     avatar: 'https://cataas.com/cat',
   };
+
+  toggleButton() {
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  increaseAge() {
+    this.person.age += 1;
+  }
+
+  onScroll(event: Event) {
+    const element = event.target as HTMLElement;
+    console.log(element.scrollTop);
+  }
+
+  changeName(event: Event) {
+    const element = event.target as HTMLInputElement;
+    this.person.name = element.value;
+  }
 }

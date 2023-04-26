@@ -1,4 +1,17 @@
+<h1>NgModel</h1>
+
+<h3>Nombre: {{ person.name }}</h3>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
+<p>Valid Name: {{nameInput.valid}}</p>
+<h3>Edad: {{ person.age }}</h3>
+<input type="number" max="60" min="18" required #ageInput="ngModel" [(ngModel)]="person.age" />
+<p>Valid Age: {{ageInput.valid}}</p>
+
+<hr/>
 <h1>Eventos</h1>
+<h3>Hola, soy {{ person.name }} y tengo {{ person.age }} años</h3>
+
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
 
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle button</button>
@@ -22,10 +35,8 @@
 
 <hr />
 <h1>Propiedades</h1>
-<h3>Hola, soy {{ person.name }} y tengo {{ person.age }} años</h3>
 
 <button [disabled]="btnDisabled">Enviar</button>
-<input type="text" [value]="person.name" (keyup)="changeName($event)" />
 <progress [value]="person.age" max="100"></progress>
 <img [src]="person.avatar" width="100" />
 <hr />

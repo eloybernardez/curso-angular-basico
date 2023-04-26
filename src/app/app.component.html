@@ -1,22 +1,55 @@
+<h1>*ngFor arrays</h1>
+<div>
+  <div *ngFor="let product of products">
+    <img width="250" [src]="product.image" [alt]="product.name"/>
+    <h2>$ {{product.price}}</h2>
+    <p>{{product.name}}</p>
+  </div>
+</div>
+
+
+
+<hr/>
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length == 0">Lista vacía</li>
+  <li *ngFor="let name of names; index as i">
+    {{ i }}: {{ name }}
+    <button (click)="deleteName(i)">Delete</button>
+  </li>
+</ul>
+
+<hr />
 <h1>*ngIf</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <p *ngIf="person.name == 'Eloy'">Soy Eloy</p>
-<p *ngIf="person.name == 'Pedro' && person.age == 20; else myBlock">Soy Pedro</p>
+<p *ngIf="person.name == 'Pedro' && person.age == 20; else myBlock">
+  Soy Pedro
+</p>
 <ng-template #myBlock>
   <p>Bloque de else</p>
 </ng-template>
 
-<hr/>
+<hr />
 <h1>NgModel</h1>
 
 <h3>Nombre: {{ person.name }}</h3>
 <input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
-<p>Valid Name: {{nameInput.valid}}</p>
+<p>Valid Name: {{ nameInput.valid }}</p>
 <h3>Edad: {{ person.age }}</h3>
-<input type="number" max="60" min="18" required #ageInput="ngModel" [(ngModel)]="person.age" />
-<p>Valid Age: {{ageInput.valid}}</p>
+<input
+  type="number"
+  max="60"
+  min="18"
+  required
+  #ageInput="ngModel"
+  [(ngModel)]="person.age"
+/>
+<p>Valid Age: {{ ageInput.valid }}</p>
 
-<hr/>
+<hr />
 <h1>Eventos</h1>
 <h3>Hola, soy {{ person.name }} y tengo {{ person.age }} años</h3>
 

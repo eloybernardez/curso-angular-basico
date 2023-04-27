@@ -1,10 +1,75 @@
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input
+      required
+      name="name"
+      id="name"
+      type="text"
+      #name="ngModel"
+      [(ngModel)]="register.name"
+    />
+    <p
+      [ngClass]="{
+        'error': name.touched && name.invalid ,
+      }"
+    >
+      Mensaje de error
+    </p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input
+      required
+      name="email"
+      id="email"
+      type="text"
+      #email="ngModel"
+      [(ngModel)]="register.email"
+    />
+    <p
+      [ngClass]="{
+      'error': email.touched && email.invalid ,
+    }"
+    >
+      Mensaje de error
+    </p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input
+      required
+      name="password"
+      id="password"
+      type="text"
+      #password="ngModel"
+      [(ngModel)]="register.password"
+    />
+    <p
+      [ngClass]="{
+      'error': password.touched && password.invalid ,
+    }"
+    >
+      Mensaje de error
+    </p>
+    <div class="button-container">
+      <button type="submit" [disabled]="myForm.invalid">Registrar</button>
+      <button type="button" (click)="cleanFields()">Limpiar campos</button>
+    </div>
+  </div>
+</form>
+
+<hr />
 <h1>NgClass & NgStyles</h1>
 <input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
-<hr class="line-error"
-[ngClass]="{
-  'valid': nameInput4.valid,
-  'invalid': nameInput4.invalid
-}"/>
+<hr
+  class="line-error"
+  [ngClass]="{
+    valid: nameInput4.valid,
+    invalid: nameInput4.invalid
+  }"
+/>
 <p class="message-error" [class.invalid]="nameInput4.invalid">
   El campo es requerido
 </p>
@@ -15,18 +80,17 @@
     <input type="number" required [(ngModel)]="box.height" />
     <input type="color" required [(ngModel)]="box.background" />
   </div>
-  <div [ngStyle]="{
-    'width.px':box.width,
-    'height.px': box.height,
-    'background-color':box.background,
-    'display':'block'
-  }">
-
-  </div>
+  <div
+    [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      display: 'block'
+    }"
+  ></div>
 </div>
 
-
-<hr/>
+<hr />
 <h1>Class & Styles</h1>
 <input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
 <p class="message-error" [class.invalid]="nameInput2.invalid">
@@ -41,7 +105,7 @@
 <div class="styles">
   <div>
     <label for="width">Image width</label>
-    <input type="text" id="width" [(ngModel)]="widthImg"/>
+    <input type="text" id="width" [(ngModel)]="widthImg" />
   </div>
   <div>
     <img [src]="person.avatar" [style.width.px]="widthImg" />

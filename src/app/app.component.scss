@@ -36,13 +36,44 @@
 
 .line-error {
   height: 0;
-  border-bottom:1px solid;
+  border-bottom: 1px solid;
   &.invalid {
-    border-color: red
+    border-color: red;
   }
   &.valid {
     border-color: green;
   }
+}
+
+.input-group {
+  width: 400px;
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  flex-direction: column;
+  label {
+    font-weight: bold;
+  }
+  input {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  p {
+    display: none;
+    font-size: 12px;
+    margin-top: 0;
+    color: red;
+    &.error {
+      display: block;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .styles {

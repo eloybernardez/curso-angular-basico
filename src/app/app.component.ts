@@ -7,11 +7,16 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  widthImg=10;
+  widthImg = 10;
   name = 'Eloy';
   age = 29;
   img = 'https://cataas.com/cat';
   btnDisabled = true;
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  };
   person = {
     name: 'Eloy',
     age: 19,
@@ -53,10 +58,10 @@ export class AppComponent {
     },
   ];
   box = {
-    width:100,
-    height:100,
-    background: 'red'
-  }
+    width: 100,
+    height: 100,
+    background: 'red',
+  };
 
   addName() {
     this.names.push(this.newName);
@@ -83,5 +88,17 @@ export class AppComponent {
   changeName(event: Event) {
     const element = event.target as HTMLInputElement;
     this.person.name = element.value;
+  }
+
+  cleanFields() {
+    this.register = {
+      name: '',
+      email: '',
+      password: '',
+    };
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 }

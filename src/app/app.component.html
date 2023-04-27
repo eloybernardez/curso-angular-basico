@@ -1,3 +1,54 @@
+<h1>NgClass & NgStyles</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr class="line-error"
+[ngClass]="{
+  'valid': nameInput4.valid,
+  'invalid': nameInput4.invalid
+}"/>
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  El campo es requerido
+</p>
+<div class="styles">
+  <div>
+    <!-- #nameInput='ngModel' == Template reference variable -->
+    <input type="number" required [(ngModel)]="box.width" />
+    <input type="number" required [(ngModel)]="box.height" />
+    <input type="color" required [(ngModel)]="box.background" />
+  </div>
+  <div [ngStyle]="{
+    'width.px':box.width,
+    'height.px': box.height,
+    'background-color':box.background,
+    'display':'block'
+  }">
+
+  </div>
+</div>
+
+
+<hr/>
+<h1>Class & Styles</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  El campo es requerido
+</p>
+<!-- <label [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Nombre</label> Error: #nameInput3 funciona como una variable de JS y en esta línea aún no se ha declarado -->
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">
+  Texto texto texto
+</p>
+
+<div class="styles">
+  <div>
+    <label for="width">Image width</label>
+    <input type="text" id="width" [(ngModel)]="widthImg"/>
+  </div>
+  <div>
+    <img [src]="person.avatar" [style.width.px]="widthImg" />
+  </div>
+</div>
+
+<hr />
 <h1>*ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
@@ -9,9 +60,9 @@
 
 <hr />
 <h1>*ngFor arrays</h1>
-<div>
+<div class="product--grid">
   <div *ngFor="let product of products">
-    <img width="250" [src]="product.image" [alt]="product.name" />
+    <img [src]="product.image" [alt]="product.name" />
     <h2>$ {{ product.price }}</h2>
     <p>{{ product.name }}</p>
   </div>

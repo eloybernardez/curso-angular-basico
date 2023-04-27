@@ -7,6 +7,7 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  widthImg=10;
   name = 'Eloy';
   age = 29;
   img = 'https://cataas.com/cat';
@@ -51,6 +52,11 @@ export class AppComponent {
       image: './assets/images/glasses.jpg',
     },
   ];
+  box = {
+    width:100,
+    height:100,
+    background: 'red'
+  }
 
   addName() {
     this.names.push(this.newName);
